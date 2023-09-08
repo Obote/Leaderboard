@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
     {name: 'Westhan United', score: 10}
   ];
 
+const displayLeaderBoard = () => {
+  scoreList.innerHTML = "";
 
+  LeaderBoardData.forEach(team, index) => {
+    const listItem = document.createElement('li');
+    listItem.className = 'score-item';
+    listItem.textContent = `${team.name}: ${team.score}`;
+    scoreList.appendChild(listItem);
+  }
+}
 
-})
+});
