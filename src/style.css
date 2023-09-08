@@ -5,9 +5,10 @@
 }
 
 body {
-  background-color:#f5f5f5;
+  background-color: #f5f5f5;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .leaderboard-wrapper {
   display: flex;
   flex-direction: column;
@@ -23,6 +24,7 @@ body {
   width: 90%;
   margin: 22px 0;
 }
+
 .recent-scores {
   width: 100%;
   padding: 20px;
