@@ -13,7 +13,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 10% 20% 0;
+}
+
+.app-title {
+  align-self: center;
 }
 
 .score-container {
@@ -26,6 +31,61 @@ body {
 }
 
 .recent-scores {
+  width: 350px;
+  padding: 10px 20px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  padding-right: 10px;
+}
+
+.score-list {
+  margin-top: 20px;
+  font-size: 13px;
+  border: 3px solid rgb(0, 0, 0);
+  line-height: 18px;
+  font-weight: 300;
+}
+
+.score-list li:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+
+.score-list li:nth-child(even) {
+  background-color: lightgrey;
+}
+
+.score-item {
+  padding: 2px;
+  list-style-type: none;
+}
+
+.refresh-button {
+  cursor: pointer;
+  padding: 2px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 12px;
   width: 100%;
-  padding: 20px;
+}
+
+form input {
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.submit-button {
+  padding: 4px;
+  width: 30%;
+  align-self: flex-end;
+  cursor: pointer;
 }

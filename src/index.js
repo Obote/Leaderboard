@@ -1,3 +1,5 @@
+import './style.css';
+
 const apiUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/7UyWMdCgHZ87wkTWCz0G/scores/';
 
 const fetchLeaderboard = async () => {
@@ -11,6 +13,7 @@ const fetchLeaderboard = async () => {
 
       data.result.forEach((score, index) => {
         const listItem = document.createElement('li');
+        listItem.classList.add('score-item');
         listItem.innerHTML = `${index + 1}. ${score.user} - ${score.score}`;
         scoreList.appendChild(listItem);
       });
