@@ -15,10 +15,10 @@ async function fetchLeaderboard() {
         scoreList.appendChild(listItem);
       });
     } else {
-      console.error('Failed to fetch leaderboard data');
+      Error('Failed to fetch leaderboard data');
     }
   } catch (error) {
-    console.error('Error:', error);
+    Error('Error:', error);
   }
 }
 
@@ -28,7 +28,7 @@ async function handleSubmit(event) {
   const playerName = document.getElementById('player-name').value;
   const playerScore = parseInt(document.getElementById('player-score').value, 10);
 
-  if (playerName && !isNaN(playerScore)) {
+  if (playerName && !Number.isNaN(playerScore)) {
     try {
       const response = await fetch(apiUrl, {
         method: 'POST',
@@ -44,10 +44,10 @@ async function handleSubmit(event) {
 
         fetchLeaderboard();
       } else {
-        console.error('Failed to submit the score');
+        Error('Failed to submit the score');
       }
     } catch (error) {
-      console.error('Error:', error);
+      Error('Error:', error);
     }
   }
 }
