@@ -1,29 +1,58 @@
-// index.js
+const apiUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/7UyWMdCgHZ87wkTWCz0G/scores/';
 
-import { fetchLeaderboard } from './module/leaderboard.js';
-import { handleSubmit } from './module/form.js';
+async function fetchLeaderboard() {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
 
-document.querySelector('.refresh-button').addEventListener('click', async () => {
-  const leaderboardData = await fetchLeaderboard();
-  updateLeaderboard(leaderboardData);
-});
+    if (response.ok) {
+      const scoreList = document.getElementById('score-list');
+      scoreList.innerHTML = '';
 
-document.getElementById('score-form').addEventListener('submit', async (event) => {
-  const leaderboardData = await handleSubmit(event);
-  updateLeaderboard(leaderboardData);
-});
-
-function updateLeaderboard(leaderboardData) {
-  const scoreList = document.getElementById('score-list');
-  scoreList.innerHTML = '';
-
-  leaderboardData.forEach((score, index) => {
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `${index + 1}. ${score.user} - ${score.score}`;
-    scoreList.appendChild(listItem);
-  });
+      data.result.forEach((score, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `${index + 1}. ${score.user} - ${score.score}`;
+        scoreList.appendChild(listItem);
+      });
+    } else {
+      console.error('Failed to fetch leaderboard data');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
-fetchLeaderboard().then((leaderboardData) => {
-  updateLeaderboard(leaderboardData);
-});
+async function handleSubmit(event) {
+  event.preventDefault();
+
+  const playerName = document.getElementById('player-name').value;
+  const playerScore = parseInt(document.getElementById('player-score').value, 10);
+
+  if (playerName && !isNaN(playerScore)) {
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user: playerName, score: playerScore }),
+      });
+
+      if (response.ok) {
+        document.getElementById('player-name').value = '';
+        document.getElementById('player-score').value = '';
+
+        fetchLeaderboard();
+      } else {
+        console.error('Failed to submit the score');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+}
+
+document.querySelector('.refresh-button').addEventListener('click', fetchLeaderboard);
+document.getElementById('score-form').addEventListener('submit', handleSubmit);
+
+fetchLeaderboard();
