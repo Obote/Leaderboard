@@ -33,7 +33,21 @@ body {
 
 .recent-scores {
   width: 100%;
-  padding: 20px;
+  padding: 10px 20px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 24px;
+  padding-right: 10px;  
+
+}
+
+.refresh-button {
+cursor: pointer;
 }
 
 form {
