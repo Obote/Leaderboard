@@ -1,24 +1,30 @@
 import './style.css';
+import Data from './module/data.js';
+import addScore from './module/addscore.js';
+import getScore from './module/getscore.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const scoreList = document.querySelector('.score-list');
+const formData = document.getElementById('score-form');
+const refreshBtn = document.getElementById('submit-button');
+const scoreList = document.getElementById('score-list');
 
-  const LeaderBoardData = [
-    { name: 'Manchester City', score: 12 },
-    { name: 'Tottenham Hotspur', score: 10 },
-    { name: 'Liverpool', score: 10 },
-    { name: 'Westhan United', score: 10 },
-  ];
+formData.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const inputName = document.getElementById('player-name');
+  const inputScore = document.getElementById('player-score');
+  const name = inputName.value;
+  const score = inputScore.value;
+  const newData = new Data(name, score);
+  await addScore(newData);
+  document.getElementById('player-name').value = '';
+  document.getElementById('player-score').value = '';
+});
 
-  const displayLeaderBoard = () => {
-    scoreList.innerHTML = '';
+refreshBtn.addEventListener('click', () => {
+  scoreList.innerHTML = '';
+  getScore();
+});
 
-    LeaderBoardData.forEach((team) => {
-      const listItem = document.createElement('li');
-      listItem.className = 'score-item';
-      listItem.textContent = `${team.name}: ${team.score}`;
-      scoreList.appendChild(listItem);
-    });
-  };
-  displayLeaderBoard();
+window.addEventListener('load', () => {
+  scoreList.innerHTML = '';
+  getScore();
 });

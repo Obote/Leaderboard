@@ -3,7 +3,13 @@ const getScore = async () => {
   const response = await fetch(scoreURL);
   const data = await response.json();
   const gamesData = data.result;
-  return gamesData;
+  const scoreList = document.getElementById('score-list');
+
+  gamesData.forEach((data) => {
+    const list = document.createElement('li');
+    list.textContent = `${data.user}: ${data.score}`;
+    scoreList.appendChild(list);
+  });
 };
 
 export default getScore;
