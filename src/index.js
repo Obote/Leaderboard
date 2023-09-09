@@ -1,6 +1,6 @@
 const apiUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/7UyWMdCgHZ87wkTWCz0G/scores/';
 
-async function fetchLeaderboard() {
+const fetchLeaderboard = async () => {
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
@@ -20,9 +20,9 @@ async function fetchLeaderboard() {
   } catch (error) {
     Error('Error:', error);
   }
-}
+};
 
-async function handleSubmit(event) {
+const handleSubmit = async (event) => {
   event.preventDefault();
 
   const playerName = document.getElementById('player-name').value;
@@ -50,7 +50,7 @@ async function handleSubmit(event) {
       Error('Error:', error);
     }
   }
-}
+};
 
 document.querySelector('.refresh-button').addEventListener('click', fetchLeaderboard);
 document.getElementById('score-form').addEventListener('submit', handleSubmit);
