@@ -39,7 +39,7 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding-top: 10px;
   gap: 12px;
   width: 100%;
 }
@@ -47,4 +47,11 @@ form {
 form input {
   padding: 2px;
   border-radius: 3px;
+}
+
+.submit-button {
+  padding: 4px;
+  width: 30%;
+  align-self: flex-end;
+  cursor: pointer;
 }
