@@ -56,6 +56,19 @@ body {
 
 }
 
+.score-list li:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+
+.score-list li:nth-child(even) {
+  background-color: lightgrey;
+}
+
+.score-item {
+  padding: 2px;
+  list-style-type: none;
+}
+
 .refresh-button {
 cursor: pointer;
 padding: 2px;
