@@ -43,3 +43,8 @@ form {
   gap: 12px;
   width: 100%;
 }
+
+form input {
+  padding: 2px;
+  border-radius: 3px;
+}
