@@ -19,7 +19,6 @@ body {
 
 .app-title {
   align-self: center;
-
 }
 
 .score-container {
@@ -34,7 +33,6 @@ body {
 .recent-scores {
   width: 350px;
   padding: 10px 20px;
- 
 }
 
 .section-title {
@@ -43,8 +41,7 @@ body {
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
-  padding-right: 10px;  
-
+  padding-right: 10px;
 }
 
 .score-list {
@@ -53,7 +50,6 @@ body {
   border: 3px solid rgb(0, 0, 0);
   line-height: 18px;
   font-weight: 300;
-
 }
 
 .score-list li:nth-child(odd) {
@@ -70,8 +66,8 @@ body {
 }
 
 .refresh-button {
-cursor: pointer;
-padding: 2px;
+  cursor: pointer;
+  padding: 2px;
 }
 
 form {
