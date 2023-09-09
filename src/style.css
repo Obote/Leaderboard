@@ -13,7 +13,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 10% 20% 0;
+}
+
+.app-title {
+  align-self: center;
+
 }
 
 .score-container {
@@ -28,4 +34,12 @@ body {
 .recent-scores {
   width: 100%;
   padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 12px;
+  width: 100%;
 }

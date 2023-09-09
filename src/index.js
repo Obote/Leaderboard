@@ -1,3 +1,5 @@
+import './style.css';
+
 const apiUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/7UyWMdCgHZ87wkTWCz0G/scores/';
 
 async function fetchLeaderboard() {
